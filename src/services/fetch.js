@@ -29,41 +29,39 @@ const useFetch = () => {
     try {
     
         const response = await fetch(
-          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_APP_KEY}&q=${query}`,
-        
-        );
+          `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_APP_KEY}&q=${query}`,
+         );
         const city = await response.json();
         await dispatch(citiesArrAction(city));
         return city;
-   
-    } catch (error) {
-     // throw error;
+       } catch (error) {
+      throw error;
     }
   };
 
   const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${API_APP_KEY}&metric=true`
+        `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${API_APP_KEY}&metric=true`
       );
       const daysWeather = await response.json();
       await dispatch(daysWeatherAction(daysWeather));
       return daysWeather;
     } catch (error) {
-      //throw error;
+      throw error;
     }
   };
 
   const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${API_APP_KEY}&details=true`
+        `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${API_APP_KEY}&details=true`
       );
       const cityWeather = await response.json();
       await dispatch(cityWeatherAction(cityWeather));
       return cityWeather;
     } catch (error) {
-     // throw error;
+    throw error;
     }
   };
 
