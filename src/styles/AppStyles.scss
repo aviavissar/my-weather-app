@@ -1,0 +1,12 @@
+@import "./reset";
+@import "./settings";
+@import "./global";
+
+@import "../components/AllPageComponents/Header/Header.component";
+@import "../components/HomePageComponents/Search/Search.component";
+@import "../components/HomePageComponents/Today/Today.component";
+@import "../components/HomePageComponents/FiveDaysWeather/FiveDaysWeather.component";
+@import "../components/HomePageComponents/OneDay/OneDay.component";
+@import "../components/HomePageComponents/AddFavorits/AddFavorits.component";
+@import "../components/FavoritesPageComponents/FavoritesCity/FavoritesCity.component";
+@import "../components/FavoritesPageComponents/FavoritesPage/FavoritesPage.component";

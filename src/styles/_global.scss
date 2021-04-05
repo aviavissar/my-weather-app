@@ -1,0 +1,155 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: $primary-font;
+  font-family: $primary-font;
+  font-size: 1.6rem;
+  
+  line-height: 1.6;
+  background-color: $bg-color;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color;
+}
+input[type="submit"],
+button,
+input[type="reset"] {
+  @extend .button;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.site-content {
+  
+ 
+  min-height: 750px;
+  &.dark{
+    background-color: $bg-dark-color;
+    color: $primary-dark-color;
+  }
+  &.light{
+    background-color: white;
+    color: $primary-color;
+  }
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+button:disabled {
+  cursor: default;
+  background: fade-out(#3f51b5, 0.25);
+}
+
+.button {
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  background: $accent-color;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  width: 200px;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 16px 20px;
+  border: none;
+}
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  line-height: 1.5;
+}
+h2 {
+  font-size: $font-size-l;
+  line-height: 1.5;
+  font-weight: 700;
+}
+h3 {
+  font-size: $font-size-m;
+  line-height: 1.5;
+  font-weight: 600;
+}
+div.toast-message,div.toast-title{
+  font-family:"Helvetica", "Arial", "sans-serif";
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  width: 6em;
+  height: 6em;
+  border: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid #000000;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+  transition: opacity 0.3s;
+}
+
+.loader--hide {
+  opacity: 0;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 415px) {
+  .site-content.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    .button {
+      font-size: medium;
+      padding: 10px 20px;
+      height: 50px;
+      margin-top: 20px;
+    }
+  }
+  forecast.today .degree {
+    line-height: initial;
+    flex-wrap: initial;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+  .forecast.today {
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .site-content.container .button,
+  .site-content.container input[type="submit"],
+  .site-content.container button,
+  .site-content.container input[type="reset"] {
+    font-size: 1.5rem;
+    padding: 10px 5px;
+    height: 50px;
+    margin-top: 20px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

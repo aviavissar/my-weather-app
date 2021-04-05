@@ -1,0 +1,38 @@
+.forecast-container {
+  width: 100%;
+  background: $forecast-container;
+  display: table;
+  table-layout: fixed;
+  overflow: hidden;
+  border-radius: 10px;
+
+  .forecast {
+    display: table-cell;
+    vertical-align: top;
+
+    &:nth-child(even) {
+      background-color: $secondary-color;
+    }
+    @media screen and (max-width: 990px) {
+      padding: 4px;
+      width: 20%;
+    }
+  }
+  @media screen and (max-width: 990px) {
+    display: flex;
+    margin-bottom: 5px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+.dark .forecast-container {
+  background-color: $forecast-dark-container;
+  color: $primary-dark-color;
+
+  .forecast {
+    &:nth-child(even) {
+      background-color: $secondary-dark-color;
+    }
+  }
+}

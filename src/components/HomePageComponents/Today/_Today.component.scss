@@ -1,0 +1,81 @@
+.forecast.today {
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.forecast-header {
+  @media (max-width: 500px) {
+    margin-bottom: 20px;
+  }
+}
+.forecast {
+  padding: 0px;
+  text-align: center;
+
+  @media (min-width: $desktop-breakpoint) {
+    padding: 20px;
+  }
+}
+.forecast.today .degree {
+  line-height: 2.5;
+  flex-wrap: initial;
+  font-weight: 700;
+}
+.forecast.today .degree .num {
+  font-size: 90px;
+  font-size: $font-size-xl;
+  margin-right: 30px;
+  @media (max-width: 500px) {
+    font-size: $font-size-l;
+    margin-right: 73px;
+    line-height: normal;
+  }
+  @media (max-width: 400px) {
+    font-size: 3rem;
+    margin-right: 73px;
+  }
+}
+
+.forecast.today .location {
+  font-size: 36px;
+  font-weight: bold;
+  @media (max-width: 500px) {
+    margin-top: -20px;
+  }
+}
+
+.today .forecast-icon img {
+  margin-top: -50px;
+  width: 220px;
+  @media (max-width: 991px) {
+    margin-top: 20px;
+    width: 150px;
+  }
+  @media (max-width: 600px) {
+    margin-top: -57px;
+    position: relative;
+    top: 26px;
+    right: 1px;
+  }
+  @media (max-width: 424px) {
+    width: 95px;
+    margin-left: 14px;
+  }
+}
+
+.footericons {
+  font-weight: 500;
+  width: 91%;
+  color: gray;
+  img {
+    margin-right: 5px;
+  }
+  @media (max-width: 300px) {
+    display: none;
+  }
+}
+.day-name {
+  @media (max-width: 440px) {
+    font-size: 14px;
+  }
+}

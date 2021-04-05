@@ -1,0 +1,39 @@
+.search {
+  .select-box--items {
+    overflow: auto;
+    padding: 35px 50px 10px 20px;
+    background-color: #dbeaf7;
+    margin-top: -26px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid #c5d2de;
+    border-top: none;
+    display: none;
+  }
+  .select-box--items :hover {
+    background-color: $secondary-color;
+  }
+
+  .find-location input[type="text"] {
+    width: 100%;
+    padding: 20px 50px 20px 20px;
+    background: $forecast-container;
+    border: 1px solid $primary-color;
+  }
+}
+.dark{
+  .select-box--items {
+    overflow: auto;
+    padding: 35px 50px 10px 20px;
+    background-color: $secondary-dark-color;
+    margin-top: -26px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid #c5d2de;
+    border-top: none;
+    display: none;
+  }
+  .select-box--items :hover {
+    background-color:#545b62;
+  }
+}

@@ -1,0 +1,35 @@
+// Font family
+$primary-font: "Helvetica", "Arial", "sans-serif";
+$secondary-font: "Roboto Slab", "Raleway", "Open Sans", serif;
+
+// Font size
+$primary-font: 14px;
+$secondary-font: 12px;
+// Color Variables
+$accent-color: #009ad8;
+$primary-color: #262936;
+$secondary-color: #c4d7e0;
+$forecast-container: #e8f5fb;
+$bg-color: #181f23;
+
+$accent-dark-color: #009ad8;
+$primary-dark-color: #e8f5fb; 
+$secondary-dark-color: #404547; 
+$forecast-dark-container:#1f2a2f;
+$bg-dark-color: #2c3541;
+
+// Grid system
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+//font size
+$font-size-xl: 6rem;
+$font-size-l: 4rem;
+$font-size-m: 2.5rem;
+
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+$desktop-breakpoint: 45rem;

@@ -1,0 +1,26 @@
+.favorites .container {
+  button,
+  input[type="reset"] {
+    display: inline-flex;
+  }
+  .button {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    height: initial;
+    span {
+      font-weight: bolder;
+    }
+  }
+  @media (max-width: 500px) {
+    .button {
+      width: 130px;
+      font-weight: 400;
+      padding: 5px;
+      font-size: 14px;
+      height: initial;
+    }
+
+    flex-direction: column;
+  }
+}

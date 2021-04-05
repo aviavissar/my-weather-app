@@ -1,0 +1,49 @@
+.site-header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    display: inline-block;
+    margin-left: 25px;
+    vertical-align: middle;
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+    justify-content: space-between;
+
+    .menu-item {
+      margin-right: 20px;
+      &:hover {
+        a {
+          border-color: $accent-color;
+          color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+.dark .menu-item :hover {
+  border-color: $primary-dark-color;
+  color: $primary-dark-color;
+}
+.dark .menu-item {
+  border-color: $primary-dark-color;
+  color: $primary-dark-color;
+}
+@media (max-width: 424px) {
+  .menu-item h4 {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .site-header .menu .menu-item {
+    margin-right: 10px;
+  }
+  label.switch {
+    display: none;
+  }
+}

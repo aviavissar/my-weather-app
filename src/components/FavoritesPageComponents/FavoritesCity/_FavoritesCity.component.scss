@@ -1,0 +1,24 @@
+.favorites {
+  margin: 10px 30px;
+  padding: 10px;
+  .city-text {
+    padding-top: 20px;
+  }
+}
+.button {
+  background-color: #038ec5;
+  border: none;
+  border-radius: 10;
+  width: 217px;
+  margin-right: 20px;
+}
+.delete {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: $accent-color;
+  width: 50px !important;
+}
+.dark .delete {
+  color: $primary-dark-color;
+}

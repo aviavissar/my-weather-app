@@ -1,0 +1,92 @@
+.one_day {
+  text-align: center;
+  .day {
+    margin-bottom: 10px;
+  }
+  .degree {
+    font-size: 22px;
+    font-size: 1.7142857143em;
+    flex-wrap: initial;
+    font-weight: 700;
+    margin: 10px auto;
+  }
+  .forecast-icon {
+    margin-bottom: 10px;
+    height: 40px;
+  }
+
+  h5.one_day {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 1px 0 10px 0;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+@media (max-width: 767px) {
+  font-size: 18px;
+
+  font-weight: bold;
+   h5 {
+    font-size: 0.8rem;
+   
+  }
+  .forecast-icon {
+    margin-bottom: 10px;
+    height: 40px;
+  }
+  img {
+   width: 30px;
+   margin: auto;
+   
+  }
+  .day {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight:normal ;
+   
+   
+  }
+  h5.day{
+    font-weight: bold;
+  }
+  .degree {
+   
+    font-size: 1.3em;
+    flex-wrap: initial;
+    font-weight: 700;
+  }
+}
+  
+  @media (max-width: 500px) {
+    font-size: 18px;
+
+    font-weight: bold;
+     h5 {
+      font-size: 0.7rem;
+      text-align: center;
+      padding: 1px 0 10px 0;
+      font-weight: bold;
+    }
+    img {
+     width: 30px;
+     margin: auto;
+    }
+    .day {
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight:bold ;
+     
+     
+    }
+    h5.day{
+      font-weight: normal;
+    }
+    .degree {
+      font-size: 22px;
+      font-size: 0.7142857143em;
+      flex-wrap: initial;
+      font-weight: 700;
+    }
+   
+  }
+}

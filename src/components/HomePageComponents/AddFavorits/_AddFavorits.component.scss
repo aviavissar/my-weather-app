@@ -1,0 +1,28 @@
+.add-Favorits {
+  margin: 4px 6px 17px 26px;
+  display: flex;
+  align-items: center;
+  h3 {
+    margin-top: 10px;
+    text-align: center;
+    margin-right: 37px;
+    margin-left: -19px;
+  }
+
+  .fas,
+  .far {
+    color: #009ad8;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: row;
+  }
+}
+
+.button:disabled {
+  opacity: 0.3;
+  background-color: #009ad8;
+}
