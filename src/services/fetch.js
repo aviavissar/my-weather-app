@@ -7,7 +7,7 @@ import {
   daysWeatherAction,
 } from "../actions/action";
 
-const API_APP_KEY = consts.WEATHER_API_KEY;
+const API_APP_KEY = process.env.WEATHER_API_KEY;
 toastr.options = {
   debug: false,
   newestOnTop: false,
