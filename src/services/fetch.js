@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import consts from "../consts";
 import toastr from "toastr";
 import {
   citiesArrAction,
@@ -7,7 +6,7 @@ import {
   daysWeatherAction,
 } from "../actions/action";
 
-const API_APP_KEY = process.env.WEATHER_API_KEY;
+
 toastr.options = {
   debug: false,
   newestOnTop: false,
