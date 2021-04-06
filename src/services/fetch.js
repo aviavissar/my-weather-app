@@ -28,9 +28,7 @@ const useFetch = () => {
     try {
     
         const response = await fetch(
-          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${process.env.WEATHER_API_KEY}&q=${query}`, {
-      mode: "no-cors" 
-    }
+          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${process.env.WEATHER_API_KEY}&q=${query}`
          );
         const city = await response.json();
         await dispatch(citiesArrAction(city));
@@ -43,9 +41,7 @@ const useFetch = () => {
   const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${process.env.WEATHER_API_KEY}&metric=true`, {
-      mode: "no-cors" 
-    }
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${process.env.WEATHER_API_KEY}&metric=true`
       );
       const daysWeather = await response.json();
       await dispatch(daysWeatherAction(daysWeather));
@@ -58,9 +54,7 @@ const useFetch = () => {
   const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${process.env.WEATHER_API_KEY}&details=true`, {
-      mode: "no-cors" 
-    }
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${process.env.WEATHER_API_KEY}&details=true`
       );
       const cityWeather = await response.json();
       await dispatch(cityWeatherAction(cityWeather));
