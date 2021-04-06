@@ -29,7 +29,7 @@ const useFetch = () => {
     try {
     
         const response = await fetch(
-          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${WEATHER_API_KEY}&q=${query}`,
+          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&q=${query}`,
       {
         method: "GET",
         mode: "cors", 
@@ -51,7 +51,7 @@ const useFetch = () => {
   const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${WEATHER_API_KEY}&metric=true`,
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&metric=true`,
       {
         method: "GET",
         mode: "cors", 
@@ -72,7 +72,7 @@ const useFetch = () => {
   const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${WEATHER_API_KEY}&details=true`,
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&details=true`,
       {
         method: "GET",
         mode: "cors", 
