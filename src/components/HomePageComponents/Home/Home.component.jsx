@@ -9,9 +9,7 @@ import Today from "../Today/Today.component";
 import Fivedays from "../FiveDaysWeather/FiveDaysWeather.component";
 import AddToFavorits from "../AddFavorits/AddFavorits.component";
 import toastr from "toastr";
-//import fakeCity from "../../../fakedata/CityInfo.json";
-//import fakeWeather from "../../../fakedata/CityWeather.json";
-//import fakedays from "../../../fakedata/DaysWeather.json";
+
 
 const HomeComponent = ({ hideLoader }) => {
   const location = useLocation();
@@ -30,9 +28,9 @@ const HomeComponent = ({ hideLoader }) => {
       try {
         let cities, weater, days;
         if (!location.state) {
-          cities = await fetchCitiesArr(CONSTS.DEFAULT_SEARCH_CITY);
-          weater = await fetchCityWeather(CONSTS.DEFAULT_KEY_CITY);
-          days = await fetchDaysWeather(CONSTS.DEFAULT_KEY_CITY);
+          cities = await fetchCitiesArr(process.env.DEFAULT_SEARCH_CITY);
+          weater = await fetchCityWeather(process.env.DEFAULT_KEY_CITY);
+          days = await fetchDaysWeather(process.env.DEFAULT_KEY_CITY);
           setCityObj(cities[0]);
         } else {
           const favoriteCity = favorites.find(
