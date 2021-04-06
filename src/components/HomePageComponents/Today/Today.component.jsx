@@ -6,14 +6,8 @@ import fakeWeather from "../../../fakedata/CityWeather.json";
 
 
 const TodayComponent = ({cityObj,todayWeather}) => {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return nextProps.cityInfo[0] !== undefined
-
-  // }
-
-  //const todayWeather = useSelector((state) => state.todayWeather);
+ 
   const cityiesInfo = useSelector((state) => state.cityiesInfo);
-
 
   const [cityWeather, setCityWeather] = useState(todayWeather);
   const [selectedCity, setSelectedCity] = useState([]);
