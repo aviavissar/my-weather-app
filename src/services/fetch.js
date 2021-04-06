@@ -23,12 +23,13 @@ toastr.options = {
 
 const useFetch = () => {
   const dispatch = useDispatch();
+ const WEATHER_API_KEY=process.env.WEATHER_API_KEY;
 
   const fetchCitiesArr = async (query = "Tel-Aviv") => {
     try {
     
         const response = await fetch(
-          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${process.env.WEATHER_API_KEY}&q=${query}`,
+          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${WEATHER_API_KEY}&q=${query}`,
       {
         method: "GET",
         mode: "cors", 
@@ -50,7 +51,7 @@ const useFetch = () => {
   const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${process.env.WEATHER_API_KEY}&metric=true`,
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${WEATHER_API_KEY}&metric=true`,
       {
         method: "GET",
         mode: "cors", 
@@ -71,7 +72,7 @@ const useFetch = () => {
   const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${process.env.WEATHER_API_KEY}&details=true`,
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${WEATHER_API_KEY}&details=true`,
       {
         method: "GET",
         mode: "cors", 
