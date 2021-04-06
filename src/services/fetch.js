@@ -28,7 +28,19 @@ const useFetch = () => {
     try {
     
         const response = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&q=${query}`
+          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&q=${query}`,
+      {
+        method: "GET",
+        mode: "cors", 
+        cache: 'no-cache', 
+        credentials: 'same-origin',
+        headers: {
+          "Content-Type": "application/json",
+        
+        },
+        redirect: 'follow',
+        referrerPolicy: "no-referrer",
+      }
          );
         const city = await response.json();
         await dispatch(citiesArrAction(city));
@@ -41,7 +53,19 @@ const useFetch = () => {
   const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&metric=true`);
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&metric=true`,
+      {
+        method: "GET",
+        mode: "cors", 
+        cache: 'no-cache', 
+        credentials: 'same-origin',
+        headers: {
+          "Content-Type": "application/json",
+        
+        },
+        redirect: 'follow',
+        referrerPolicy: "no-referrer",
+      });
       const daysWeather = await response.json();
       await dispatch(daysWeatherAction(daysWeather));
       return daysWeather;
@@ -53,7 +77,19 @@ const useFetch = () => {
   const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&details=true` );
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&details=true`,
+      {
+        method: "GET",
+        mode: "cors", 
+        cache: 'no-cache', 
+        credentials: 'same-origin',
+        headers: {
+          "Content-Type": "application/json",
+         
+        },
+        redirect: 'follow',
+        referrerPolicy: "no-referrer",
+      } );
       const cityWeather = await response.json();
       await dispatch(cityWeatherAction(cityWeather));
       return cityWeather;
