@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-import { useSelector, useDispatch } from "react-redux";
-import fakeCity from "../../../fakedata/CityInfo.json";
-import fakeWeather from "../../../fakedata/CityWeather.json";
+import { useSelector } from "react-redux";
 
-
-const TodayComponent = ({cityObj,todayWeather}) => {
- 
+const TodayComponent = ({ cityObj, todayWeather }) => {
   const cityiesInfo = useSelector((state) => state.cityiesInfo);
 
   const [cityWeather, setCityWeather] = useState(todayWeather);
@@ -14,15 +10,14 @@ const TodayComponent = ({cityObj,todayWeather}) => {
   const [WeatherIcon, setWeatherIcon] = useState(2);
 
   useEffect(() => {
-    console.log(selectedCity)
-    if(todayWeather){
-      console.log('cvc',cityObj)
+    console.log(selectedCity);
+    if (todayWeather) {
+      console.log("cvc", cityObj);
       setCityWeather(todayWeather);
       setSelectedCity(cityObj);
-     setWeatherIcon(transformIcons(todayWeather.WeatherIcon));
+      setWeatherIcon(transformIcons(todayWeather.WeatherIcon));
     }
-   
-  },[todayWeather,cityObj]);
+  }, [todayWeather, cityObj]);
 
   const transformIcons = (iconNum) => {
     switch (iconNum) {
@@ -59,20 +54,18 @@ const TodayComponent = ({cityObj,todayWeather}) => {
 
   return (
     <div className="">
-      {cityWeather&&selectedCity? (
+      {cityWeather && selectedCity ? (
         <div className="today forecast forecast-content">
           <div className="forecast-header row">
             <div className="location col-12 col-xs-12">
-            <h2>{selectedCity.LocalizedName}</h2>
-              
+              <h2>{selectedCity.LocalizedName}</h2>
             </div>
             <div className="day-name col-12 col-xs-12">
-            <h3>
-            {moment(selectedCity.LocalObservationDateTime).format(
-                "dddd D MMM"
-              )}
-            </h3>
-             
+              <h3>
+                {moment(selectedCity.LocalObservationDateTime).format(
+                  "dddd D MMM"
+                )}
+              </h3>
             </div>
           </div>
           <div className="degree row">

@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from "react";
-import useFetch from "../../../services/fetch.js";
+import useFetch from "../../../services/useFetch.js";
 import { useSelector } from "react-redux";
+import useDebounce from "../../../services/useDebounce";
 
 const SearchComponent = ({ sendCityObj }) => {
-  let { fetchCitiesArr } = useFetch();
+  const { fetchCitiesArr } = useFetch();
   const [display, setDisplay] = useState("none");
-  const [inputValue, setInputValue] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDisplay, setselectedDisplay] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const citiesArr = useSelector((state) => state.citiesInfo);
 
-  let citiesArr = useSelector((state) => state.citiesInfo);
-
-  const onSearchChange = (e) => {
-    const cti = fetchCitiesArr(e.target.value);
-    setInputValue(e.target.value);
-    setDisplay("block");
-    if (e.target.value === "") {
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      fetchCitiesArr(debouncedSearchTerm);
+      setDisplay("block");
+    } else {
       setDisplay("none");
     }
-  };
+  }, [debouncedSearchTerm]);
 
   const selectItem = (city) => {
-    setInputValue(`${city.LocalizedName}, ${city.Country.LocalizedName}`);
-    setDisplay("none");
+    setselectedDisplay(`${city.LocalizedName}, ${city.Country.LocalizedName}`);
     sendCityObj(city);
+    setDisplay("none");
   };
 
   return (
@@ -34,8 +36,11 @@ const SearchComponent = ({ sendCityObj }) => {
             placeholder="Find your location..."
             id="search"
             name="search"
-            value={inputValue}
-            onChange={onSearchChange}
+            value={selectedDisplay}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setselectedDisplay(e.target.value);
+            }}
           />
 
           <div className="select-box--items" style={{ display: display }}>

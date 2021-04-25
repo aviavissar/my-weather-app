@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useHistory ,useLocation} from 'react-router-dom';
 
 import { useSelector} from "react-redux";
-import useFavorits from "../../../services/favorits";
-import useFetch from "../../../services/fetch";
+import useFavorits from "../../../services/useFavorits";
+import useFetch from "../../../services/useFetch";
 import FavoriteCity from "../FavoritesCity/FavoritesCityComponent";
 
 const FavoriteComponent = ({ hideLoader}) => {
