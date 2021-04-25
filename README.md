@@ -12,6 +12,7 @@
 7. Responsive design is a must! (flexbox/grid will give you extra points ��).
 8. Error handling is a must! (can be done with toast, modal). 
 
+![image](https://user-images.githubusercontent.com/18117395/115997614-60cf5f00-a5ec-11eb-93e0-d09282cdf50a.png)
 
 In the project directory, you can run:
 
