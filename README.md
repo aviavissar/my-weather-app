@@ -1,7 +1,7 @@
-### wheather app 
+# wheather app 
 ## fatch city wheather fron api and display the week days and favorites
 
-# The requirements
+### The requirements
 
 1. Create a header with navigation icons/links/buttons for main and favorites screen. 
 2. The main screen (weather details) will be composed of a search field to search a location’s weather by city name. And below it, the current weather and a 5-day forecast of the searched location. A location should have an indication if it’s already saved in favorites, and a button to add/remove from favorites (it can be the same button).
