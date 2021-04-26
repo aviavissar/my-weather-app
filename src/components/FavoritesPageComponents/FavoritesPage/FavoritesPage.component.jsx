@@ -1,32 +1,32 @@
 import React, { useEffect } from "react";
-import { useHistory ,useLocation} from 'react-router-dom';
-
-import { useSelector} from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import useFavorits from "../../../services/useFavorits";
-import useFetch from "../../../services/useFetch";
 import FavoriteCity from "../FavoritesCity/FavoritesCityComponent";
+import {
+  fetchCitiesArr,
+  fetchDaysWeather,
+  fetchCityWeather,
+} from "../../../services/fetch";
 
-const FavoriteComponent = ({ hideLoader}) => {
-  const { toAddToFavorits, getFavorits, removeFavorits } = useFavorits();
-  const { fetchCitiesArr, fetchDaysWeather, fetchCityWeather } = useFetch();
+const FavoriteComponent = ({ hideLoader }) => {
+  const { removeFavorits } = useFavorits();
   const thefavorites = useSelector((state) => state.favorites);
   const history = useHistory();
+
   useEffect(() => {
-    toAddToFavorits();
     hideLoader();
   }, []);
 
   const selectCity = ({ LocalizedName, Key }) => {
-    toAddToFavorits();
     fetchCitiesArr(LocalizedName);
     fetchCityWeather(Key);
     fetchDaysWeather(Key);
     history.push("/");
     history.push({
-      pathname: '/',
-      
-      state: { cityKey:Key,cityName:LocalizedName}
-    })
+      pathname: "/",
+      state: { cityKey: Key, cityName: LocalizedName },
+    });
   };
   const removeCity = (key) => {
     removeFavorits(key);

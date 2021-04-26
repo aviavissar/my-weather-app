@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import useFetch from "../../../services/useFetch.js";
-import { useSelector } from "react-redux";
+import { fetchCitiesArr } from "../../../services/fetch.js";
 import useDebounce from "../../../services/useDebounce";
 
 const SearchComponent = ({ sendCityObj }) => {
-  const { fetchCitiesArr } = useFetch();
   const [display, setDisplay] = useState("none");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDisplay, setselectedDisplay] = useState("");
+  const [citiesArr, setCitiesArr] = useState([]);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const citiesArr = useSelector((state) => state.citiesInfo);
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      fetchCitiesArr(debouncedSearchTerm);
+      const doAsync = async () => {
+        setCitiesArr(await fetchCitiesArr(debouncedSearchTerm));
+      };
+      doAsync();
       setDisplay("block");
     } else {
       setDisplay("none");
@@ -44,7 +45,8 @@ const SearchComponent = ({ sendCityObj }) => {
           />
 
           <div className="select-box--items" style={{ display: display }}>
-            {citiesArr !== undefined
+            {console.log("citarr", citiesArr)}
+            {citiesArr.length > 0
               ? citiesArr.map((city, index) => {
                   return (
                     <div

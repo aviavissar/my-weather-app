@@ -1,12 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import citiesInfoReducer from "../reducers/citiesInfoReducer";
+import selectedCityReducer from "../reducers/selectedCityReducer";
 import favoritesReducer from "../reducers/favoritesReducer";
 import thunk from "redux-thunk";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  citiesInfo: citiesInfoReducer,
+  selected_city: selectedCityReducer,
   favorites: favoritesReducer,
 });
 

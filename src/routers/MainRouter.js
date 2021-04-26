@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import useFavorits from "../services/useFavorits";
 import Favorites from "../components/FavoritesPageComponents/FavoritesPage/FavoritesPage.component";
 import Home from "../components/HomePageComponents/Home/Home.component";
 import Header from "../components/AllPageComponents/Header/Header.component";
@@ -12,7 +13,10 @@ const MainRouter = ({ hideLoader }) => {
   const [theme, setTheme] = useState("light");
   const [bool, setBool] = useState(true);
 
-  const handleChange = (event) => {
+  const { toAddToFavorits } = useFavorits();
+  toAddToFavorits();
+
+  const handleChange = () => {
     if (bool) {
       setTheme("dark");
     } else {
@@ -20,6 +24,7 @@ const MainRouter = ({ hideLoader }) => {
     }
     setBool(!bool);
   };
+
   return (
     <div className={`site-content container ${theme}`}>
       <Router history={history}>

@@ -1,27 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import useFetch from "../../../services/useFetch";
+import { useDispatch } from "react-redux";
+import {
+  fetchCitiesArr,
+  fetchCityWeather,
+  fetchDaysWeather,
+} from "../../../services/fetch";
+import { citiesArrAction } from "../../../actions/action";
 import useFavorits from "../../../services/useFavorits";
 import CONSTS from "../../../consts";
 import Search from "../Search/Search.component";
 import Today from "../Today/Today.component";
-import {transformIcons} from "../../../services/utils"
+import { transformIcons } from "../../../services/utils";
 import Fivedays from "../FiveDaysWeather/FiveDaysWeather.component";
 import AddToFavorits from "../AddFavorits/AddFavorits.component";
 import toastr from "toastr";
 
-
 const HomeComponent = ({ hideLoader }) => {
-  const location = useLocation();
-  const history = useHistory();
-  let { fetchCitiesArr, fetchCityWeather, fetchDaysWeather } = useFetch();
-  const { toAddToFavorits } = useFavorits();
   const [isFavorits, setIsFavorits] = useState(false);
   const [cityObj, setCityObj] = useState({});
   const [cityWeather, setCityWeather] = useState(null);
   const [daysWeather, setDaysWeather] = useState(null);
 
+  const location = useLocation();
+  const history = useHistory();
+
+  const { toAddToFavorits } = useFavorits();
+
+  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites);
 
   useEffect(() => {
@@ -33,6 +40,7 @@ const HomeComponent = ({ hideLoader }) => {
           weater = await fetchCityWeather(CONSTS.DEFAULT_KEY_CITY);
           days = await fetchDaysWeather(CONSTS.DEFAULT_KEY_CITY);
           setCityObj(cities[0]);
+          await dispatch(citiesArrAction(cities[0]));
         } else {
           const favoriteCity = favorites.find(
             (city) => city.Key == location.state.cityKey
@@ -60,10 +68,10 @@ const HomeComponent = ({ hideLoader }) => {
     return favorites.find((city) => cityObj.Key === city.Key);
   };
 
-
   const handlSendCityObj = async (city) => {
     const weater = await fetchCityWeather(city.Key);
     const days = await fetchDaysWeather(city.Key);
+    await dispatch(citiesArrAction(city));
     setCityObj({ ...cityObj, ...city });
     setCityWeather({ ...cityWeather, ...weater[0] });
     setDaysWeather(days);
