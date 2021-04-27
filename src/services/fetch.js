@@ -21,7 +21,7 @@ toastr.options = {
 export const fetchCitiesArr = async (query = "Tel-Aviv") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_APP_KEY}&q=${query}`
+        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&q=${query}`
       );
       const city = await response.json();
   
@@ -34,7 +34,7 @@ export const fetchCitiesArr = async (query = "Tel-Aviv") => {
   export const fetchDaysWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${API_APP_KEY}&metric=true`
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&metric=true`
       );
       const daysWeather = await response.json();
       return daysWeather;
@@ -46,7 +46,7 @@ export const fetchCitiesArr = async (query = "Tel-Aviv") => {
   export const fetchCityWeather = async (key = "215854") => {
     try {
       const response = await fetch(
-        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${API_APP_KEY}&details=true`
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=AEvJItzx62qMCozpuB0nGCsf3izvCzZa&details=true`
       );
       const cityWeather = await response.json();
       return cityWeather;
