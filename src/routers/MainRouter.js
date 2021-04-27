@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Route, Switch, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import useFavorits from "../services/useFavorits";
@@ -14,8 +14,11 @@ const MainRouter = ({ hideLoader }) => {
   const [bool, setBool] = useState(true);
 
   const { toAddToFavorits } = useFavorits();
-  toAddToFavorits();
 
+useEffect(() => {
+  toAddToFavorits();
+  
+}, [])
   const handleChange = () => {
     if (bool) {
       setTheme("dark");
