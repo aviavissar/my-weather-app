@@ -1,5 +1,5 @@
 # wheather app 
-## fatch city wheather fron api and display the week days and favorites
+## fetch city wheather from api and display the week days and favorites
 
 ### The requirements
 
